@@ -1,0 +1,1 @@
+const {contextBridge,ipcRenderer}=require('electron');contextBridge.exposeInMainWorld('ju',{readSettings:()=>ipcRenderer.invoke('settings:read'),writeSettings:s=>ipcRenderer.invoke('settings:write',s),openWeb:u=>ipcRenderer.invoke('web:open',u),openSandbox:u=>ipcRenderer.invoke('web:sandbox',u),chooseBackground:()=>ipcRenderer.invoke('image:choose')});

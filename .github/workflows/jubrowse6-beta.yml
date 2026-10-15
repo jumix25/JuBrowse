@@ -18,7 +18,9 @@ jobs:
           - os: windows-latest
             platform: windows
           - os: macos-latest
-            platform: macos
+            platform: macos-arm64
+          - os: macos-15-intel
+            platform: macos-intel
           - os: ubuntu-latest
             platform: linux
     runs-on: ${{ matrix.os }}
@@ -34,10 +36,14 @@ jobs:
         if: matrix.platform == 'windows'
         working-directory: desktop
         run: npm run dist -- --win nsis
-      - name: Build macOS DMG and app ZIP
-        if: matrix.platform == 'macos'
+      - name: Build macOS ARM64 DMG and app ZIP
+        if: matrix.platform == 'macos-arm64'
         working-directory: desktop
-        run: npm run dist -- --mac dmg zip
+        run: npm run dist -- --mac dmg zip --arm64
+      - name: Build macOS Intel DMG and app ZIP
+        if: matrix.platform == 'macos-intel'
+        working-directory: desktop
+        run: npm run dist -- --mac dmg zip --x64
       - name: Build Linux AppImage
         if: matrix.platform == 'linux'
         working-directory: desktop

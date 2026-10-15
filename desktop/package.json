@@ -1,0 +1,27 @@
+{
+  "name": "jubrowse-6",
+  "version": "6.0.0-beta.1",
+  "description": "JuBrowse 6.0 Beta - JuGroup desktop browser prototype",
+  "main": "src/main.js",
+  "author": "JuGroup",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^36.0.0",
+    "electron-builder": "^26.0.0"
+  },
+  "build": {
+    "appId": "tech.jugroup.jubrowse6",
+    "productName": "JuBrowse 6.0 Beta",
+    "files": ["src/**/*", "package.json"],
+    "directories": {"output": "release"},
+    "artifactName": "JuBrowse-6.0-beta-${os}-${arch}.${ext}",
+    "win": {"target": ["nsis"]},
+    "mac": {"target": ["dmg", "zip"]},
+    "linux": {"target": ["AppImage"]},
+    "nsis": {"oneClick": false, "allowToChangeInstallationDirectory": true}
+  }
+}

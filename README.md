@@ -1,78 +1,35 @@
-<div align="center">
+# JuBrowse 6.0 Beta
 
-# JuBrowse
+**JuBrowse 6.0 Beta** is an experimental cross-platform Electron browser prototype by JuGroup.
 
-**Modern. Fast. Experimental.**
+- Website: https://jumix25.github.io/JuBrowse/
+- Repository: https://github.com/jumix25/JuBrowse
+- Beta releases: https://github.com/jumix25/JuBrowse/releases
 
-JuBrowse is a modern browser project developed by **Ju Group**.  
-It focuses on a clean interface, version-based development, tabs, themes, internal pages, and experimental browser features.
+## Desktop prototype
 
-[Website](https://jumix25.github.io/JuBrowse/) · [Repository](https://github.com/jumix25/JuBrowse)
+The new app lives in `desktop/`.
 
-</div>
-
----
-
-## Overview
-
-JuBrowse is currently in active development. The project started as a simple Electron browser prototype and evolved into multiple experimental versions with different features and architectures.
-
-## Features
-
-- Multi-tab browser interface
-- Dark and Light mode
-- Internal start page
-- Internal settings page
-- Mini game for waiting time
-- Version-based development
-- Electron-based desktop builds
-- Tauri experiment in V4
-
-## Version Roadmap
-
-| Version | Status | Description |
-|---|---:|---|
-| V1 | Done | First prototype |
-| V2 | Done | Desktop app experiment |
-| V3 | Done | Electron tabs prototype |
-| V4 | Experiment | Tauri/WebView test |
-| V5 | Done | Improved Electron tab system |
-| V5.1 | In development | Final Electron Edition |
-
-## Current Focus
-
-The current main development version is:
-
-```text
-JuBrowse 5.1 Final Electron Edition
+```bash
+cd desktop
+npm install
+npm start
 ```
 
-Planned improvements:
+Requires Node.js 22+.
 
-- Better tab management
-- Custom icon branding
-- Release builds for macOS and Windows
-- GitHub Pages website
-- GitHub Actions build pipeline
-- Public download section
+## Build pipeline
 
-## Tech Stack
+GitHub Actions workflow: `.github/workflows/jubrowse6-beta.yml`.
 
-- Electron
-- JavaScript
-- HTML
-- CSS
-- GitHub Pages
-- GitHub Actions planned
+- Windows: NSIS `.exe` installer
+- macOS: `.dmg` and ZIP containing the `.app`
+- Linux: `.AppImage`
 
-## Project Vision
+A tagged release matching `v6.0.0-beta*` triggers builds and publishes a GitHub prerelease. Manually running the workflow uploads build artifacts to the Actions run.
 
-The goal of JuBrowse is to become a customizable browser platform with a modern interface and experimental features, while also serving as a long-term software project by Ju Group.
+## Beta status and security
 
----
+This is an early prototype, not yet a production browser. Chrome Web Store installation and a real network adblocker are not implemented. The sandbox uses a separate non-persistent Electron session, not a complete OS-level isolation boundary. Do not rely on it to safely open malware or highly suspicious sites.
 
-<div align="center">
-
-Developed by **Ju Group**
-
-</div>
+Features include a configurable home page, light/dark theme, PNG background selection, custom shortcuts, Homelab alias `homelab:PORT`, and early game demos. Some game experiences remain incomplete.
